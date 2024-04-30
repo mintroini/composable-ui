@@ -16,6 +16,7 @@ import { HamburgerIcon } from '@chakra-ui/icons'
 import { useRouter } from 'next/router'
 import { MenuItem } from 'components/menu/menu-item'
 import NextLink from 'next/link'
+import { WeatherInformation } from './weather-information'
 
 export const Header = () => {
   const { cart } = useCart()
@@ -82,6 +83,9 @@ export const Header = () => {
             justifyContent="flex-end"
             gap={3}
           >
+            <Box display={{ base: 'none', md: 'flex' }} px={10}>
+              <WeatherInformation />
+            </Box>
             <Box display={{ base: 'none', md: 'flex' }}>
               <LoginAction />
             </Box>

@@ -12,6 +12,7 @@ import { Header } from './header'
 import { Logo } from '../logo'
 import { useComposable } from 'hooks'
 import { useOnScreen } from '../../hooks'
+import { Footer } from './footer'
 
 const DynamicCartDrawer = dynamic(() =>
   import('components/cart').then((_module) => _module.CartDrawer)
@@ -91,6 +92,15 @@ export const Layout = ({ children }: Props) => {
               parentMenuItems={cmsFooterLinks}
             />
           )}
+          {/* MARTIN: check this! */}
+          {/* <Footer
+            brandLogo={<Logo h={6} />}
+            copyrightText={APP_CONFIG.COPYRIGHT}
+            homeUrl={'/'}
+            tagline={APP_CONFIG.TAG_LINE}
+            message={<FooterMessage />}
+            parentMenuItems={cmsFooterLinks}
+          /> */}
         </Box>
       </Flex>
 
