@@ -1,4 +1,5 @@
 import { Box, BoxProps, Text } from '@chakra-ui/react'
+// import { } from 'react'
 // const appID = 'cfcd7116c4e223146031a21b4a8cac01'
 // fetch(`https://api.openweathermap.org/data/2.5/weather?q=Montevideo&appid=${appID}&units=metric`)
 // response.json()
