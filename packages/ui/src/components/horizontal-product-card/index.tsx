@@ -16,7 +16,7 @@ export type HorizontalProductCardProps = (
 }
 
 export const HorizontalProductCard = (props: HorizontalProductCardProps) => {
-  const { editable, hideQuantity } = props
+  const { editable } = props
   return editable ? (
     <HorizontalProductCardEditable {...props} />
   ) : (

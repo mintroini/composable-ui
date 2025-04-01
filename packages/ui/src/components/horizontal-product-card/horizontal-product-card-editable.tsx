@@ -14,6 +14,7 @@ import { QuantityPicker } from '../quantity-picker'
 export interface HorizontalProductCardEditableProps
   extends HorizontalProductCardCommon {
   totalPrice?: string
+  hideQuantity?: boolean
   onChangeQuantity?: (val: number) => any
 }
 

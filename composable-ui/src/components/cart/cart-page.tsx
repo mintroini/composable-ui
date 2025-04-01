@@ -79,9 +79,9 @@ export const CartPage = () => {
     }
 
     if (!currentWishlist) return
-
+    debugger
     await addWishlistItem({
-      wishlistId: currentWishlist.id,
+      wishlistId: currentWishlist.wishlistId,
       productId: item.id,
       name: item.name,
       brand: item.brand,
@@ -91,8 +91,6 @@ export const CartPage = () => {
       image: item.image,
       slug: item.slug,
     })
-    // Optionally remove from cart after adding to wishlist
-    deleteCartItem.mutate({ itemId: item.id })
   }
 
   return (

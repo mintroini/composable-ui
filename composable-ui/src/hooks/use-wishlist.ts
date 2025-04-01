@@ -64,6 +64,7 @@ export const useWishlist = (userId?: string, options?: UseWishlistOptions) => {
   const wishlistItemAdd = useMutation(
     ['wishlistItemAdd'],
     async (variables: {
+      wishlistId: string
       productId: string
       name: string
       brand: string
@@ -80,9 +81,9 @@ export const useWishlist = (userId?: string, options?: UseWishlistOptions) => {
         throw 'no user id error'
       }
       const response = await client.commerce.addWishlistItem.mutate({
-        wishlistId: userId,
         userId: userId,
         ...variables,
+        wishlistId: userId,
       })
       queryClient.setQueryData([USE_WISHLIST_KEY, userId], response)
       return response

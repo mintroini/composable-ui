@@ -10,7 +10,9 @@ import { HorizontalProductCardCommon, ProductCardLayout } from './types'
 import Image from 'next/image'
 
 export interface HorizontalProductCardReadOnlyProps
-  extends HorizontalProductCardCommon {}
+  extends HorizontalProductCardCommon {
+  hideQuantity?: boolean
+}
 
 const getGridConfig: (labels: {
   quantityLabel: string
@@ -155,6 +157,7 @@ export const HorizontalProductCardReadOnly = (
   props: HorizontalProductCardReadOnlyProps
 ) => {
   const {
+    hideQuantity,
     image,
     brand,
     name,
@@ -303,17 +306,21 @@ export const HorizontalProductCardReadOnly = (
           textAlign={quantityOptions?.align}
           display={getGridItemDisplayValue('quantity')}
         >
-          <Text
-            as={quantityOptions?.display === 'block' ? 'p' : 'span'}
-            color="text-muted"
-            fontWeight="extrabold"
-            mr={1}
-          >
-            {quantityOptions?.label}
-          </Text>
-          <Text as={quantityOptions?.display === 'block' ? 'p' : 'span'}>
-            {quantity}
-          </Text>
+          {!hideQuantity && (
+            <>
+              <Text
+                as={quantityOptions?.display === 'block' ? 'p' : 'span'}
+                color="text-muted"
+                fontWeight="extrabold"
+                mr={1}
+              >
+                {quantityOptions?.label}
+              </Text>
+              <Text as={quantityOptions?.display === 'block' ? 'p' : 'span'}>
+                {quantity}
+              </Text>
+            </>
+          )}
         </GridItem>
         <GridItem area="wishlist" display={getGridItemDisplayValue('wishlist')}>
           {onAddToWishlist && (
