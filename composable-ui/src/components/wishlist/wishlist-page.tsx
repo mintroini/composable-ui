@@ -157,6 +157,7 @@ export const WishlistPage = ({
               return (
                 <Box key={item.id} as="li">
                   <HorizontalProductCard
+                    hideQuantity={true}
                     key={item.id}
                     brand={item.brand}
                     columns={4}

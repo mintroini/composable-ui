@@ -12,10 +12,11 @@ export type HorizontalProductCardProps = (
   | HorizontalProductCardReadOnlyProps
 ) & {
   editable?: boolean
+  hideQuantity?: boolean
 }
 
 export const HorizontalProductCard = (props: HorizontalProductCardProps) => {
-  const { editable } = props
+  const { editable, hideQuantity } = props
   return editable ? (
     <HorizontalProductCardEditable {...props} />
   ) : (

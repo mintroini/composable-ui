@@ -179,6 +179,7 @@ export const HorizontalProductCardEditable = (
   props: HorizontalProductCardEditableProps
 ) => {
   const {
+    hideQuantity,
     image,
     brand,
     name,
@@ -298,23 +299,27 @@ export const HorizontalProductCardEditable = (
           flexDirection="column"
           alignItems={quantityOptions?.align}
         >
-          <Text
-            fontSize={size === 'lg' ? 'xs' : 'xxs'}
-            color="text-muted"
-            fontWeight="extrabold"
-          >
-            {quantityOptions?.label}
-          </Text>
-          <QuantityPicker
-            size={size === 'lg' ? 'lg' : 'sm'}
-            hideLabel
-            rootProps={{ maxW: '100px' }}
-            isLoading={isLoading}
-            controllableStateProps={{
-              value: quantity,
-              onChange: onChangeQuantity,
-            }}
-          />
+          {!hideQuantity && (
+            <>
+              <Text
+                fontSize={size === 'lg' ? 'xs' : 'xxs'}
+                color="text-muted"
+                fontWeight="extrabold"
+              >
+                {quantityOptions?.label}
+              </Text>
+              <QuantityPicker
+                size={size === 'lg' ? 'lg' : 'sm'}
+                hideLabel
+                rootProps={{ maxW: '100px' }}
+                isLoading={isLoading}
+                controllableStateProps={{
+                  value: quantity,
+                  onChange: onChangeQuantity,
+                }}
+              />
+            </>
+          )}
         </GridItem>
         <GridItem
           area="wishlist"
